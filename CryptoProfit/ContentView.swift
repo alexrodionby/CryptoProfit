@@ -9,13 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            Color.theme.background
+                .ignoresSafeArea()
+            
+            VStack(spacing: 10) {
+                Text("color1")
+                    .foregroundColor(Color.theme.accent)
+                Text("color2")
+                    .foregroundColor(Color.theme.icon)
+                Text("color3")
+                    .foregroundColor(Color.theme.red)
+                Text("color4")
+                    .foregroundColor(Color.theme.green)
+                Text("color5")
+                    .foregroundColor(Color.theme.secondaryText)
+            }
+            .font(.title)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            ContentView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
